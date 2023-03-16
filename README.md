@@ -31,6 +31,7 @@ When running the application, the console output will display the actions perfor
 
 This program was created by *Arian DEHGHANI*
 
+render();
 Images(Folder) Added!
 
 Videos(Folder) Added!
