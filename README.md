@@ -30,8 +30,7 @@ The Program class contains the Main method which demonstrates various object-ori
 When running the application, the console output will display the actions performed by the program, and their results.
 
 This program was created by *Arian DEHGHANI*
-
-Images(Folder) Added!
+<span style="color:green;">Images(Folder) Added!</span>
 
 Videos(Folder) Added!
 
@@ -44,7 +43,7 @@ video1(Item) Added!
 video2(Item) Added!
 
 
-Try to creat another root. <font color="Yellow">
+Try to creat another root. 
 
  Creat root1
 
