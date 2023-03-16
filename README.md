@@ -2,7 +2,7 @@
 
 This is a C# console application that demonstrates Object-Oriented programming concepts. The program creates a file system with a Root node, folders, and items.
 
-##Classes
+#Classes
 The program consists of the following classes:
 
   Program: The main class that contains the entry point to the application.
@@ -15,7 +15,7 @@ The program consists of the following classes:
   
 The Program class contains the Main method which demonstrates various object-oriented programming concepts such as inheritance, encapsulation, and polymorphism. The program creates a file system with a Root node, folders, and items.
 
-##The program demonstrates the following functionality:
+#The program demonstrates the following functionality:
 
   Creating a root node and adding folders and items to it.
   Adding and deleting items within a folder.
