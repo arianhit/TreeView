@@ -34,12 +34,12 @@ When you run the program, you will see a welcome message followed by the current
 ![image](https://user-images.githubusercontent.com/93319255/225887840-3824bbfc-20bd-418d-871f-0d3dddeec99c.png)
 
 Menu Options
-+**Add Node:** Prompts the user to enter the name of the parent and subset nodes they want to add, and then adds the subset to the parent.
-+**Remove Node:** Prompts the user to enter the name of the node they want to remove, and then removes it from the tree.
-+**Move Node:** Prompts the user to enter the names of the parent and subset nodes they want to move, and then moves the subset to the parent.
-+**Search Node:** Prompts the user to enter the name of the node they want to search for, and then searches the tree for that node.
-+**Test the whole program:** Runs a series of tests on the program to ensure it is functioning correctly.
-+**Exit:** Exits the program.
++ **Add Node:** Prompts the user to enter the name of the parent and subset nodes they want to add, and then adds the subset to the parent.
++ **Remove Node:** Prompts the user to enter the name of the node they want to remove, and then removes it from the tree.
++ **Move Node:** Prompts the user to enter the names of the parent and subset nodes they want to move, and then moves the subset to the parent.
++ **Search Node:** Prompts the user to enter the name of the node they want to search for, and then searches the tree for that node.
++ **Test the whole program:** Runs a series of tests on the program to ensure it is functioning correctly.
++ **Exit:** Exits the program.
 
 ### This program was created by *Arian DEHGHANI*
 
