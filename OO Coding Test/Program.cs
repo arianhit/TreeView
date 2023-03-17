@@ -84,57 +84,56 @@ namespace OO_Coding_Test
                 }
 
                 // Process the user's choice
-                switch (chosenOptionNum)
+                switch (chosenOptionNum) // switch statement to handle different menu options based on chosenOptionNum variable
                 {
-                    case 0:
-                        op.makeItColor(ConsoleColor.Green, "Thank you for using tree view file manager");
-                        inMenu = false; // Exit the loop and end the program
+                    case 0: // case for exiting the program
+                        op.makeItColor(ConsoleColor.Green, "Thank you for using tree view file manager"); // prints a message to the console
+                        inMenu = false; // sets inMenu flag to false to exit the loop and end the program
                         break;
-                    case 1:
-                        try
+                    case 1: // case for adding a subset to a parent node
+                        try // tries to execute the code block
                         {
-                            // Prompt the user for the parent and subset nodes they want to add, and then add the subset to the parent
-                            GettingParentAndSubset();
-                            op.makeItColor(ConsoleColor.Yellow, "\nAdding node.\n");
-                            op.makeItColor(ConsoleColor.Cyan, subset.Name + " added to " + parent.Name + "\n");
-                            parent.AddSubset(subset);
+                            GettingParentAndSubset(); // calls a function to prompt the user for the parent and subset nodes they want to add
+                            op.makeItColor(ConsoleColor.Yellow, "\nAdding node.\n"); // prints a message to the console
+                            op.makeItColor(ConsoleColor.Cyan, subset.Name + " added to " + parent.Name + "\n"); // prints a message to the console with the names of the parent and subset nodes
+                            parent.AddSubset(subset); // adds the subset to the parent node
                         }
-                        catch (Exception e)
+                        catch (Exception e) // handles any exceptions thrown by the code block
                         {
-                            op.outPutError(e.Message);
+                            op.outPutError(e.Message); // prints the error message to the console
                         }
-                        validInput = false;
+                        validInput = false; // sets the flag to false to exit the loop
                         break;
-                    case 3:
-                        try
+                    case 3: // case for moving a subset to a different parent node
+                        try // tries to execute the code block
                         {
-                            GettingParentAndSubset();
-                            op.makeItColor(ConsoleColor.Yellow, "\nMoving node.\n");
-                            op.makeItColor(ConsoleColor.Cyan, subset.Name + " Moved to " + parent.Name + "\n");
-                            subset.MoveTo(parent);
+                            GettingParentAndSubset(); // calls a function to prompt the user for the parent and subset nodes they want to move
+                            op.makeItColor(ConsoleColor.Yellow, "\nMoving node.\n"); // prints a message to the console
+                            op.makeItColor(ConsoleColor.Cyan, subset.Name + " Moved to " + parent.Name + "\n"); // prints a message to the console with the names of the parent and subset nodes
+                            subset.MoveTo(parent); // moves the subset to the new parent node
                         }
-                        catch (Exception e)
+                        catch (Exception e) // handles any exceptions thrown by the code block
                         {
-                            op.outPutError(e.Message);
+                            op.outPutError(e.Message); // prints the error message to the console
                         }
-                        validInput = false;
+                        validInput = false; // sets the flag to false to exit the loop
                         break;
-                    case 4:
-                        string searchQuery;
-                        bool validSearch = false;
-                        while (true)
+                    case 4: // case for searching for a node by name
+                        string searchQuery; // declares a string variable to store the user's search query
+                        bool validSearch = false; // declares a boolean flag to track whether a valid search result has been found
+                        while (true) // loops until a valid search query is entered or the user cancels the search
                         {
-                            Console.WriteLine("\t\tPlease provide name of the Node that you want to search");
-                            searchQuery = Console.ReadLine();
-                            foreach (Node node in nodes)
+                            Console.WriteLine("\t\tPlease provide name of the Node that you want to search"); // prints a message to the console
+                            searchQuery = Console.ReadLine(); // prompts the user to enter a search query and stores it in the searchQuery variable
+                            foreach (Node node in nodes) // loops through all the nodes in the tree
                             {
-                                if (node.Name == searchQuery || node.Name.ToLower().Contains(searchQuery.ToLower()))
+                                if (node.Name == searchQuery || node.Name.ToLower().Contains(searchQuery.ToLower())) // checks if the node's name matches the search query (case-insensitive)
                                 {
-                                    subset = node;
-                                    validSearch = true;
+                                    subset = node; // sets the subset variable to the matching node
+                                    validSearch = true; // sets the flag to true to indicate a valid search result has been found
                                 }
                             }
-                            if (!validSearch)
+                            if (!validSearch) // if no matching node was found, prints an error message to the console
                             {
                                 op.outPutError("The node that you searched is not included");
                             }
@@ -143,19 +142,20 @@ namespace OO_Coding_Test
                                 break;
                             }
                         }
-                        op.makeItColor(ConsoleColor.Yellow, "\nSearching ....\n");
-                        search(searchQuery);
-                        validInput = false;
+                        //prints a message to the console with the search query
+                        op.makeItColor(ConsoleColor.Yellow, "\nSearching ....\n");// prints a message to the console
+                        search(searchQuery); // search
+                        validInput = false;// sets the flag to false to exit the loop
                         break;
                     case 5:
-                        testing();
-                        op.makeItColor(ConsoleColor.Green, "Press Enter to continue");
-                        Console.ReadLine();
-                        validInput = false;
+                        testing();//run the testing function which will test the whole programm
+                        op.makeItColor(ConsoleColor.Green, "Press Enter to continue");// prints a message to the console
+                        Console.ReadLine();//to stop the console if user wants to read all the data
+                        validInput = false;// sets the flag to false to exit the loop
                         break;
-                    default:
-                        op.outPutError("Invalid option!");
-                        validInput = false;
+                    default:// default case for handling invalid menu options
+                        op.outPutError("Invalid option!");// prints the error message to the console
+                        validInput = false;// sets the flag to false to exit the loop
                         break;
 
                 }
@@ -163,19 +163,24 @@ namespace OO_Coding_Test
             }
 
 
+            // This function prompts the user to enter the names of a parent node and a subset node.
+            // It then searches the nodes list for the nodes with those names and assigns them to the parent and subset variables.
+
             bool GettingParentAndSubset()
             {
                 try
                 {
-                    bool parentFounded = false;
-                    bool subsetFounded = false;
-                    while (true)
+                    bool parentFounded = false;     // Flag to indicate whether the parent node has been found
+                    bool subsetFounded = false;     // Flag to indicate whether the subset node has been found
+
+                    while (true)    // Loop until both nodes have been found
                     {
                         Console.WriteLine("\t\tPlease provide the name of parent of the Node ");
                         string parentName = Console.ReadLine();
                         Console.WriteLine("\t\tPlease provide the name of the subset Node");
                         string theNode = Console.ReadLine();
 
+                        // Search the nodes list for the subset node
                         foreach (Node node in nodes)
                         {
                             if (node.Name == theNode || node.Name.ToLower().Contains(theNode.ToLower()))
@@ -184,6 +189,8 @@ namespace OO_Coding_Test
                                 subsetFounded = true;
                             }
                         }
+
+                        // Search the nodes list for the parent node
                         foreach (Node node in nodes)
                         {
                             if (node.Name.ToLower() == parentName.ToLower() || node.Name.ToLower().Contains(parentName.ToLower()))
@@ -192,6 +199,8 @@ namespace OO_Coding_Test
                                 parentFounded = true;
                             }
                         }
+
+                        // Check if both nodes have been found
                         if (!parentFounded)
                         {
                             op.outPutError("parent not founded please enter the on of the nodes that has been provided");
@@ -211,12 +220,10 @@ namespace OO_Coding_Test
                     op.outPutError(e.Message);
                 }
                 return true;
-
             }
             void testing()
             {
-                //Creat a root
-
+              
                 try
                 {
 
@@ -236,7 +243,7 @@ namespace OO_Coding_Test
                     //•	Cannot create multiple root nodes
                     op.makeItColor(ConsoleColor.Yellow, "\nTry to creat another root.\n");
                     op.makeItColor(ConsoleColor.Cyan, " Creat root1" + "\n");
-                    Root root1 = new Root("Drive(Root)");
+                  
 
                     //•	Adding and deleting items within a folder.
                     TreeView();
@@ -332,6 +339,7 @@ namespace OO_Coding_Test
             // Define a method to display the tree structure
             void TreeView()
             {
+                System.Threading.Thread.Sleep(1000);
                 // Print some separator lines to improve readability
                 Console.WriteLine();
                 Console.WriteLine("-----------------------------------------------------TREE VIEW FILE MANAGER----------------------------------------------------------------");
@@ -366,6 +374,8 @@ namespace OO_Coding_Test
 
                 // Print some separator lines to improve readability
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------------");
+                System.Threading.Thread.Sleep(1000);
+
             }
 
             // Define a method to search for a node with a given name within the tree
