@@ -28,8 +28,9 @@ namespace OO_Coding_Test
         // Constructor that sets the name and initializes the child node collection
         public Node(string name)
         {
-            Name = name;
+            Name = name ;
             Collection = new List<Node>();
+            op.makeItColor(ConsoleColor.Green, Name + " Provided!");
         }
 
         // Method that adds a child node to the collection
@@ -96,7 +97,7 @@ namespace OO_Coding_Test
             searchTerm = searchTerm.ToLower();
 
             // If the node's name contains the search term, add it to the matches list
-            if (Name.ToLower().Contains(searchTerm))
+            if (Name.ToLower().Contains(searchTerm.ToLower()))
             {
                 matches.Add(this);
             }
@@ -104,7 +105,7 @@ namespace OO_Coding_Test
             // Recursively search child nodes and add any matches to the matches list
             foreach (Node subset in Collection)
             {
-                matches.AddRange(subset.Search(searchTerm));
+                matches.AddRange(subset.Search(searchTerm.ToLower()));
             }
 
             // Return the resualts of search

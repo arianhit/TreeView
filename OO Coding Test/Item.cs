@@ -9,7 +9,7 @@ namespace OO_Coding_Test
     public class Item : Node
     {
         // Constructor for the Item class.
-        public Item(string name) : base(name)
+        public Item(string name) : base(name + " (" + typeof(Item).Name + ")")
         {
         }
 
