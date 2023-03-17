@@ -54,8 +54,8 @@ namespace OO_Coding_Test
 
                 // Display the menu options and get the user's choice
                 Console.WriteLine("Please chose an option from below (enter a number for example : 1)\n\n");
-                Console.WriteLine("\t1.add Node");
-                Console.WriteLine("\t2.Remoce Node");
+                Console.WriteLine("\t1.Add Node");
+                Console.WriteLine("\t2.Remove Node");
                 Console.WriteLine("\t3.Move Node");
                 Console.WriteLine("\t4.Search Node");
                 Console.WriteLine("\t5.Test the whole program");
@@ -73,34 +73,34 @@ namespace OO_Coding_Test
                         }
                         else
                         {
-                            op.outPutError("Please enter a number between 0 to 5!");
+                            op.OutPutError("Please enter a number between 0 to 5!");
                         }
                     }
                 }
                 catch (Exception e)
                 {
                     Console.Clear();
-                    op.outPutError(e.Message);
+                    op.OutPutError(e.Message);
                 }
 
                 // Process the user's choice
                 switch (chosenOptionNum) // switch statement to handle different menu options based on chosenOptionNum variable
                 {
                     case 0: // case for exiting the program
-                        op.makeItColor(ConsoleColor.Green, "Thank you for using tree view file manager"); // prints a message to the console
+                        op.MakeItColor(ConsoleColor.Green, "Thank you for using tree view file manager"); // prints a message to the console
                         inMenu = false; // sets inMenu flag to false to exit the loop and end the program
                         break;
                     case 1: // case for adding a subset to a parent node
                         try // tries to execute the code block
                         {
                             GettingParentAndSubset(); // calls a function to prompt the user for the parent and subset nodes they want to add
-                            op.makeItColor(ConsoleColor.Yellow, "\nAdding node.\n"); // prints a message to the console
-                            op.makeItColor(ConsoleColor.Cyan, subset.Name + " added to " + parent.Name + "\n"); // prints a message to the console with the names of the parent and subset nodes
+                            op.MakeItColor(ConsoleColor.Yellow, "\nAdding node.\n"); // prints a message to the console
+                            op.MakeItColor(ConsoleColor.Cyan, subset.Name + " added to " + parent.Name + "\n"); // prints a message to the console with the names of the parent and subset nodes
                             parent.AddSubset(subset); // adds the subset to the parent node
                         }
                         catch (Exception e) // handles any exceptions thrown by the code block
                         {
-                            op.outPutError(e.Message); // prints the error message to the console
+                            op.OutPutError(e.Message); // prints the error message to the console
                         }
                         validInput = false; // sets the flag to false to exit the loop
                         break;
@@ -108,13 +108,13 @@ namespace OO_Coding_Test
                         try // tries to execute the code block
                         {
                             GettingParentAndSubset(); // calls a function to prompt the user for the parent and subset nodes they want to move
-                            op.makeItColor(ConsoleColor.Yellow, "\nMoving node.\n"); // prints a message to the console
-                            op.makeItColor(ConsoleColor.Cyan, subset.Name + " Moved to " + parent.Name + "\n"); // prints a message to the console with the names of the parent and subset nodes
+                            op.MakeItColor(ConsoleColor.Yellow, "\nMoving node.\n"); // prints a message to the console
+                            op.MakeItColor(ConsoleColor.Cyan, subset.Name + " Moved to " + parent.Name + "\n"); // prints a message to the console with the names of the parent and subset nodes
                             subset.MoveTo(parent); // moves the subset to the new parent node
                         }
                         catch (Exception e) // handles any exceptions thrown by the code block
                         {
-                            op.outPutError(e.Message); // prints the error message to the console
+                            op.OutPutError(e.Message); // prints the error message to the console
                         }
                         validInput = false; // sets the flag to false to exit the loop
                         break;
@@ -135,7 +135,7 @@ namespace OO_Coding_Test
                             }
                             if (!validSearch) // if no matching node was found, prints an error message to the console
                             {
-                                op.outPutError("The node that you searched is not included");
+                                op.OutPutError("The node that you searched is not included");
                             }
                             if (validSearch)
                             {
@@ -143,18 +143,18 @@ namespace OO_Coding_Test
                             }
                         }
                         //prints a message to the console with the search query
-                        op.makeItColor(ConsoleColor.Yellow, "\nSearching ....\n");// prints a message to the console
+                        op.MakeItColor(ConsoleColor.Yellow, "\nSearching ....\n");// prints a message to the console
                         search(searchQuery); // search
                         validInput = false;// sets the flag to false to exit the loop
                         break;
                     case 5:
                         testing();//run the testing function which will test the whole programm
-                        op.makeItColor(ConsoleColor.Green, "Press Enter to continue");// prints a message to the console
+                        op.MakeItColor(ConsoleColor.Green, "Press Enter to continue");// prints a message to the console
                         Console.ReadLine();//to stop the console if user wants to read all the data
                         validInput = false;// sets the flag to false to exit the loop
                         break;
                     default:// default case for handling invalid menu options
-                        op.outPutError("Invalid option!");// prints the error message to the console
+                        op.OutPutError("Invalid option!");// prints the error message to the console
                         validInput = false;// sets the flag to false to exit the loop
                         break;
 
@@ -203,11 +203,11 @@ namespace OO_Coding_Test
                         // Check if both nodes have been found
                         if (!parentFounded)
                         {
-                            op.outPutError("parent not founded please enter the on of the nodes that has been provided");
+                            op.OutPutError("parent not founded please enter the one of the nodes that has been provided");
                         }
                         if (!subsetFounded)
                         {
-                            op.outPutError("subset not founded please enter the on of the nodes that has been provided");
+                            op.OutPutError("subset not founded please enter the one of the nodes that has been provided");
                         }
                         if (parentFounded && subsetFounded)
                         {
@@ -217,7 +217,7 @@ namespace OO_Coding_Test
                 }
                 catch (Exception e)
                 {
-                    op.outPutError(e.Message);
+                    op.OutPutError(e.Message);
                 }
                 return true;
             }
@@ -241,99 +241,102 @@ namespace OO_Coding_Test
                     videos.AddSubset(item5);
 
                     //•	Cannot create multiple root nodes
-                    op.makeItColor(ConsoleColor.Yellow, "\nTry to creat another root.\n");
-                    op.makeItColor(ConsoleColor.Cyan, " Creat root1" + "\n");
-                  
+                    TreeView();
+                    op.MakeItColor(ConsoleColor.Yellow, "\nTry to creat another root.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, " Creat root1" + "\n");
+                    Root root1 = new Root("Driver");
+
+
 
                     //•	Adding and deleting items within a folder.
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nAdding items within a folder.\n");
-                    op.makeItColor(ConsoleColor.Cyan, videos.Name + " add " + item6.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nAdding items within a folder.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, videos.Name + " add " + item6.Name + "\n");
                     videos.AddSubset(item6);
-                    op.makeItColor(ConsoleColor.Cyan, images.Name + " add " + item3.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Cyan, images.Name + " add " + item3.Name + "\n");
                     images.AddSubset(item3);
 
 
                     //•	Items cannot contain anything.
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nTry to add item to another item.\n");
-                    op.makeItColor(ConsoleColor.Cyan, item1.Name + " add " + item3.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nTry to add item to another item.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, item1.Name + " add " + item3.Name + "\n");
                     item1.AddSubset(item3);
 
 
                     //Cannot add root to any node
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nTry to add root to a folder.\n");
-                    op.makeItColor(ConsoleColor.Cyan, videos.Name + " add " + root.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nTry to add root to a folder.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, videos.Name + " add " + root.Name + "\n");
                     videos.AddSubset(root);
 
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nDeleting items within a folder.\n");
-                    op.makeItColor(ConsoleColor.Cyan, item1.Name + " remove from " + images.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nDeleting items within a folder.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, item1.Name + " remove from " + images.Name + "\n");
                     images.RemoveSubset(item1);
-                    op.makeItColor(ConsoleColor.Cyan, item5.Name + " remove from " + videos.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Cyan, item5.Name + " remove from " + videos.Name + "\n");
                     videos.RemoveSubset(item5);
 
                     //Cannot remove item from an item
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nTry to remove item from another item.\n");
-                    op.makeItColor(ConsoleColor.Cyan, item3.Name + " remove from " + item1.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nTry to remove item from another item.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, item3.Name + " remove from " + item1.Name + "\n");
                     item1.RemoveSubset(item3);
 
 
                     //•	Adding and deleting folders.
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nAdding folders.\n");
-                    op.makeItColor(ConsoleColor.Cyan, root.Name + " add " + musics.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nAdding folders.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, root.Name + " add " + musics.Name + "\n");
                     root.AddSubset(musics);
 
 
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nTry to add item to the root.\n");
-                    op.makeItColor(ConsoleColor.Cyan, root.Name + " add " + item3.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nTry to add item to the root.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, root.Name + " add " + item3.Name + "\n");
                     root.AddSubset(item3);
 
                     //•	Deleting a folder should delete everything contained in the folder.
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nDeleting folders.\n");
-                    op.makeItColor(ConsoleColor.Cyan, videos.Name + " remove from " + root.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nDeleting folders.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, videos.Name + " remove from " + root.Name + "\n");
                     root.RemoveSubset(videos);
 
 
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nSearching item.\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nSearching item.\n");
                     search("img2");
-                    op.makeItColor(ConsoleColor.Yellow, "\nSearching Folder.\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nSearching Folder.\n");
                     search("images");
 
                     //•	Moving items or folders (along with the contents, it is a folder being moved.)
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nMoving Items.\n");
-                    op.makeItColor(ConsoleColor.Cyan, item2.Name + " moved to " + musics.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nMoving Items.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, item2.Name + " moved to " + musics.Name + "\n");
                     item2.MoveTo(musics);
 
 
                     //•	Moving a folder should move everything contained within the folder.
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nMoving Folder.\n");
-                    op.makeItColor(ConsoleColor.Cyan, images.Name + " moved to " + musics.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nMoving Folder.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, images.Name + " moved to " + musics.Name + "\n");
                     images.MoveTo(musics);
 
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nTry to move root to a folder.\n");
-                    op.makeItColor(ConsoleColor.Cyan, root.Name + " moved to " + musics.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nTry to move root to a folder.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, root.Name + " moved to " + musics.Name + "\n");
                     root.MoveTo(musics);
 
                     TreeView();
-                    op.makeItColor(ConsoleColor.Yellow, "\nTry to move item to a root.\n");
-                    op.makeItColor(ConsoleColor.Cyan, item2.Name + " moved to " + root.Name + "\n");
+                    op.MakeItColor(ConsoleColor.Yellow, "\nTry to move item to a root.\n");
+                    op.MakeItColor(ConsoleColor.Cyan, item2.Name + " moved to " + root.Name + "\n");
                     item2.MoveTo(root);
 
                     TreeView();
                 }
                 catch (Exception e)
                 {
-                    op.outPutError(e.Message);
+                    op.OutPutError(e.Message);
                 }
             }
             // Define a method to display the tree structure
@@ -382,7 +385,7 @@ namespace OO_Coding_Test
             void search(string searchQuery)
             {
                 // Use a helper method to change the color of the console text
-                op.makeItColor(ConsoleColor.Green, searchQuery + " Searched!");
+                op.MakeItColor(ConsoleColor.Green, searchQuery + " Searched!");
 
                 // Print some separator lines to improve readability
                 Console.WriteLine();

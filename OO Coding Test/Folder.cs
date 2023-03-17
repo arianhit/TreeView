@@ -55,7 +55,7 @@ namespace OO_Coding_Test
             }
 
             // Output a message indicating that the folder was moved to the new parent.
-            op.makeItColor(ConsoleColor.Green, this.Name + " Moved to " + newParent.Name);
+            op.MakeItColor(ConsoleColor.Green, this.Name + " Moved to " + newParent.Name);
         }
     }
 }

@@ -17,14 +17,14 @@ namespace OO_Coding_Test
         public override void AddSubset(Node child)
         {
             // Output an error message since an item cannot have a subset.
-            op.outPutError("Cannot add collection to an item ");
+            op.OutPutError("Cannot add collection to an item ");
         }
 
         // Method to remove a subset from an item, which is not allowed.
         public override void RemoveSubset(Node child)
         {
             // Output an error message since an item cannot have a subset to remove.
-            op.outPutError("Item cannot have children");
+            op.OutPutError("Item cannot have children");
         }
 
         // Method to move an item to a new parent.

@@ -19,7 +19,7 @@ namespace OO_Coding_Test
             else
             {
                 // Output an error message if a root node already exists.
-                op.outPutError("Cannot create multiple root nodes.");
+                op.OutPutError("Cannot create multiple root nodes.");
             }
         }
 
@@ -37,7 +37,7 @@ namespace OO_Coding_Test
             else
             {
                 // Output an error message if the subset being added is not a folder.
-                op.outPutError("Only folder are allowed as collection of the root ");
+                op.OutPutError("Only folder are allowed as collection of the root ");
             }
         }
 
@@ -52,7 +52,7 @@ namespace OO_Coding_Test
         public override void MoveTo(Node newParent)
         {
             // Output an error message since the root node cannot be moved.
-            op.outPutError("Cannot move the root");
+            op.OutPutError("Cannot move the root");
         }
     }
 }

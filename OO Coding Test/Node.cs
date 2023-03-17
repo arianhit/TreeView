@@ -30,7 +30,7 @@ namespace OO_Coding_Test
         {
             Name = name ;
             Collection = new List<Node>();
-            op.makeItColor(ConsoleColor.Green, Name + " Provided!");
+            op.MakeItColor(ConsoleColor.Green, Name + " Provided!");
         }
 
         // Method that adds a child node to the collection
@@ -39,13 +39,13 @@ namespace OO_Coding_Test
             // If the child node is a root node, it cannot be added to a folder or another root node
             if (subset is Root)
             {
-                op.outPutError("Cannot add a root node to a folder or another root node.");
+                op.OutPutError("Cannot add a root node to a folder or another root node.");
             }
             else
             {
                 // Add the child node to the collection and print a message to the console
                 Collection.Add(subset);
-                op.makeItColor(ConsoleColor.Green, subset.Name + " Added!\n");
+                op.MakeItColor(ConsoleColor.Green, subset.Name + " Added!\n");
             }
         }
 
@@ -54,7 +54,7 @@ namespace OO_Coding_Test
         {
             // Remove the child node from the collection and print a message to the console
             Collection.Remove(subset);
-            op.makeItColor(ConsoleColor.Green, subset.Name + " Removed!\n");
+            op.MakeItColor(ConsoleColor.Green, subset.Name + " Removed!\n");
         }
 
         // Method that moves the node to a new parent node
@@ -69,7 +69,7 @@ namespace OO_Coding_Test
             // If trying to move to the root node, print an error message
             if (newParent is Root)
             {
-                op.outPutError("Cannot move a node to the root");
+                op.OutPutError("Cannot move a node to the root");
             }
 
             // If trying to move to a folder, remove from current parent and add to new parent
@@ -78,12 +78,12 @@ namespace OO_Coding_Test
                 Parent?.RemoveSubset(this);
                 newParent.AddSubset(this);
                 Parent = newParent;
-                op.makeItColor(ConsoleColor.Green, this.Name + " Moved to " + newParent.Name + "\n");
+                op.MakeItColor(ConsoleColor.Green, this.Name + " Moved to " + newParent.Name + "\n");
             }
             else
             {
                 // If trying to move to an item, print an error message
-                op.outPutError("Cannot move a node to an item ");
+                op.OutPutError("Cannot move a node to an item ");
             }
         }
 

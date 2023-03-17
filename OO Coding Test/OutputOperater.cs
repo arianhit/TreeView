@@ -9,7 +9,7 @@ namespace OO_Coding_Test
 {
     public class OutputOperater
     {
-        public void makeItColor(ConsoleColor color, string text)
+        public void MakeItColor(ConsoleColor color, string text)
         {
             //save the defualt color
             ConsoleColor beforeColor = Console.ForegroundColor;
@@ -26,7 +26,7 @@ namespace OO_Coding_Test
             Console.ForegroundColor = beforeColor;
         }
 
-        public void outPutError(string message)
+        public void OutPutError(string message)
         {
             //save the defualt color 
             ConsoleColor beforeRed = Console.ForegroundColor;
