@@ -41,8 +41,6 @@ Menu Options
 + **Test the whole program:** Runs a series of tests on the program to ensure it is functioning correctly.
 + **Exit:** Exits the program.
 
-### This program was created by *Arian DEHGHANI*
-
 
 # Testing 
 
@@ -105,3 +103,5 @@ Try to move root to a folder.
 Try to move item to a root.
 
 ![image](https://user-images.githubusercontent.com/93319255/225771119-a365333f-594e-4a45-b78b-c046b4964838.png)
+
+### This program was created by *Arian DEHGHANI*
