@@ -1,4 +1,4 @@
-# TreeView
+# Tree View File Manager
 
 This is a C# console application that demonstrates Object-Oriented programming concepts. The program creates a file system with a Root node, folders, and items.
 
@@ -27,9 +27,21 @@ The Program class contains the Main method which demonstrates various object-ori
   * Moving items or folders (along with the contents, if it is a folder being moved).
   * Moving a folder should move everything contained within the folder.
   
-When running the application, the console output will display the actions performed by the program, and their results.
+# Usage
+  
+When you run the program, you will see a welcome message followed by the current state of the tree. You can use the menu options to perform various actions on the tree.
 
-## This program was created by *Arian DEHGHANI*
+![image](https://user-images.githubusercontent.com/93319255/225887840-3824bbfc-20bd-418d-871f-0d3dddeec99c.png)
+
+Menu Options
++**Add Node:** Prompts the user to enter the name of the parent and subset nodes they want to add, and then adds the subset to the parent.
++**Remove Node:** Prompts the user to enter the name of the node they want to remove, and then removes it from the tree.
++**Move Node:** Prompts the user to enter the names of the parent and subset nodes they want to move, and then moves the subset to the parent.
++**Search Node:** Prompts the user to enter the name of the node they want to search for, and then searches the tree for that node.
++**Test the whole program:** Runs a series of tests on the program to ensure it is functioning correctly.
++**Exit:** Exits the program.
+
+### This program was created by *Arian DEHGHANI*
 
 
 # Testing 
