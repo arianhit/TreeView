@@ -66,11 +66,11 @@ namespace OO_Coding_Test
 
                 try
                 {
-                    // Validate the user's input and ensure it is a number between 0 and 5
+                    // Validate the user's input and ensure it is a number between 0 and 8
                     while (!validInput)
                     {
                         chosenOptionNum = Convert.ToInt32(Console.ReadLine());
-                        if (chosenOptionNum >= 0 && chosenOptionNum <= 5)
+                        if (chosenOptionNum >= 0 && chosenOptionNum <= 8)
                         {
                             validInput = true;
                         }
@@ -213,8 +213,9 @@ namespace OO_Coding_Test
 
                     if (nodeExist)
                     {
-                        op.OutPutError("The "+type+" is already exist!");
+                        op.OutPutError("The "+type+" is already exist!");// Error message if node already exists
                     }
+                    // If node does not already exist, create a new node of the specified type
                     if (!nodeExist)
                     {
                         switch (type.ToUpper())

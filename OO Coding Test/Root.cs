@@ -9,7 +9,7 @@ namespace OO_Coding_Test
     public class Root : Node
     {
         // Constructor for the Root class.
-        public Root(string name) : base(name +" (" + typeof(Root).Name + ")")
+        public Root(string name) : base(name +" (Root")
         {
             // Check if a root node already exists. If not, assign this node as the root.
             if (RootNode == null)

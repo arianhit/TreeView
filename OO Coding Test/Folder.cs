@@ -9,7 +9,7 @@ namespace OO_Coding_Test
     public class Folder : Node
     {
         // Constructor for the Folder class.
-        public Folder(string name) : base(name + " (" + typeof(Folder).Name + ")")
+        public Folder(string name) : base(name + " (Folder)")
         {
         }
 
