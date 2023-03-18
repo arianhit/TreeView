@@ -54,11 +54,14 @@ namespace OO_Coding_Test
 
                 // Display the menu options and get the user's choice
                 Console.WriteLine("Please chose an option from below (enter a number for example : 1)\n\n");
-                Console.WriteLine("\t1.Add Node");
-                Console.WriteLine("\t2.Remove Node");
-                Console.WriteLine("\t3.Move Node");
-                Console.WriteLine("\t4.Search Node");
-                Console.WriteLine("\t5.Test the whole program");
+                Console.WriteLine("\t1.Creat Root(One Root has been provided)");
+                Console.WriteLine("\t2.Creat Folder");
+                Console.WriteLine("\t3.Creat Item");
+                Console.WriteLine("\t4.Add Node");
+                Console.WriteLine("\t5.Remove Node");
+                Console.WriteLine("\t6.Move Node");
+                Console.WriteLine("\t7.Search Node");
+                Console.WriteLine("\t8.Test the whole program");
                 Console.WriteLine("\t0.Exit");
 
                 try
@@ -90,7 +93,19 @@ namespace OO_Coding_Test
                         op.MakeItColor(ConsoleColor.Green, "Thank you for using tree view file manager"); // prints a message to the console
                         inMenu = false; // sets inMenu flag to false to exit the loop and end the program
                         break;
-                    case 1: // case for adding a subset to a parent node
+                    case 1:
+                        GettingNodeName("ROOT");//creating root (must out put ERROR)
+                        validInput = false; // sets the flag to false to exit the loop
+                        break;
+                    case 2:
+                        GettingNodeName("FOLDER");//Creating Folder
+                        validInput = false; // sets the flag to false to exit the loop
+                        break;
+                    case 3:
+                        GettingNodeName("ITEM");//Creating Item
+                        validInput = false; // sets the flag to false to exit the loop
+                        break;
+                    case 4: // case for adding a subset to a parent node
                         try // tries to execute the code block
                         {
                             GettingParentAndSubset(); // calls a function to prompt the user for the parent and subset nodes they want to add
@@ -104,7 +119,21 @@ namespace OO_Coding_Test
                         }
                         validInput = false; // sets the flag to false to exit the loop
                         break;
-                    case 3: // case for moving a subset to a different parent node
+                    case 5: // case for adding a subset to a parent node
+                        try // tries to execute the code block
+                        {
+                            GettingParentAndSubset(); // calls a function to prompt the user for the parent and subset nodes they want to add
+                            op.MakeItColor(ConsoleColor.Yellow, "\nDeleting node.\n"); // prints a message to the console
+                            op.MakeItColor(ConsoleColor.Cyan, subset.Name + " Removed from " + parent.Name + "\n"); // prints a message to the console with the names of the parent and subset nodes
+                            parent.RemoveSubset(subset); // remove the subset from the parent node
+                        }
+                        catch (Exception e) // handles any exceptions thrown by the code block
+                        {
+                            op.OutPutError(e.Message); // prints the error message to the console
+                        }
+                        validInput = false; // sets the flag to false to exit the loop
+                        break;
+                    case 6: // case for moving a subset to a different parent node
                         try // tries to execute the code block
                         {
                             GettingParentAndSubset(); // calls a function to prompt the user for the parent and subset nodes they want to move
@@ -118,7 +147,7 @@ namespace OO_Coding_Test
                         }
                         validInput = false; // sets the flag to false to exit the loop
                         break;
-                    case 4: // case for searching for a node by name
+                    case 7: // case for searching for a node by name
                         string searchQuery; // declares a string variable to store the user's search query
                         bool validSearch = false; // declares a boolean flag to track whether a valid search result has been found
                         while (true) // loops until a valid search query is entered or the user cancels the search
@@ -147,7 +176,7 @@ namespace OO_Coding_Test
                         search(searchQuery); // search
                         validInput = false;// sets the flag to false to exit the loop
                         break;
-                    case 5:
+                    case 8:
                         testing();//run the testing function which will test the whole programm
                         op.MakeItColor(ConsoleColor.Green, "Press Enter to continue");// prints a message to the console
                         Console.ReadLine();//to stop the console if user wants to read all the data
@@ -165,8 +194,46 @@ namespace OO_Coding_Test
 
             // This function prompts the user to enter the names of a parent node and a subset node.
             // It then searches the nodes list for the nodes with those names and assigns them to the parent and subset variables.
+            void GettingNodeName(string type)
+            {
+                bool nodeExist = false;     // Flag to indicate whether the node has been found
 
-            bool GettingParentAndSubset()
+                while (true)    // Loop until both nodes have been found
+                {
+                    Console.WriteLine("\t\tPlease provide the name of a " + type + " you would like to creat");
+                    string nodeName = Console.ReadLine();
+
+                    foreach (Node node in nodes)
+                    {
+                        if (node.Name == nodeName || node.Name.ToLower().Contains(nodeName.ToLower()))
+                        {
+                            nodeExist = true;
+                        }
+                    }
+
+                    if (nodeExist)
+                    {
+                        op.OutPutError("The "+type+" is already exist!");
+                    }
+                    if (!nodeExist)
+                    {
+                        switch (type.ToUpper())
+                        {
+                            case "ITEM":
+                                nodes.Add(new Item(nodeName));
+                                break;
+                            case "FOLDER":
+                                nodes.Add(new Folder(nodeName));
+                                break ;
+                            case "ROOT":
+                                nodes.Add(new Root(nodeName));
+                                break;
+                        }
+                        break;
+                    }
+                }
+            }
+            void GettingParentAndSubset()
             {
                 try
                 {
@@ -219,7 +286,6 @@ namespace OO_Coding_Test
                 {
                     op.OutPutError(e.Message);
                 }
-                return true;
             }
             void testing()
             {
