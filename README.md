@@ -34,7 +34,7 @@ When you run the program, you will see a welcome message followed by the current
 ![image](https://user-images.githubusercontent.com/93319255/226100142-c95d836a-c7ab-49a5-a9d9-647ba865c39e.png)
 
 Menu Options
-+ **Creat Root:**user can enter the name of the new Root to creart(This will not work as we have already a Root).
++ **Creat Root:** user can enter the name of the new Root to creart(This will not work as we have already a Root).
 + **Creat Folder:** user can enter the name of the new Folder to creart.
 + **Creat Item:** user can enter the name of the new Item to creart.
 + **Add Node:** Prompts the user to enter the name of the parent and subset nodes they want to add, and then adds the subset to the parent.
