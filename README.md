@@ -7,8 +7,8 @@ The program consists of the following classes:
 
   * Program: The main class that contains the entry point to the application.
   * Node: The base class that all nodes inherit from.
-  * Root: A node that represents the root of the file system.
-  * Folder: A node that represents a folder in the file system.
+  * Root: A node that represents the root of the file manager.
+  * Folder: A node that represents a folder in the file manager.
   * Item: A node that represents a file in the file system.
   * OutputOperater: A class that contains helper functions for console output Usage.
   
@@ -31,9 +31,12 @@ The Program class contains the Main method which demonstrates various object-ori
   
 When you run the program, you will see a welcome message followed by the current state of the tree. You can use the menu options to perform various actions on the tree.
 
-![image](https://user-images.githubusercontent.com/93319255/225887840-3824bbfc-20bd-418d-871f-0d3dddeec99c.png)
+![image](https://user-images.githubusercontent.com/93319255/226100142-c95d836a-c7ab-49a5-a9d9-647ba865c39e.png)
 
 Menu Options
++ **Creat Root:**user can enter the name of the new Root to creart(This will not work as we have already a Root).
++ **Creat Folder:** user can enter the name of the new Folder to creart.
++ **Creat Item:** user can enter the name of the new Item to creart.
 + **Add Node:** Prompts the user to enter the name of the parent and subset nodes they want to add, and then adds the subset to the parent.
 + **Remove Node:** Prompts the user to enter the name of the node they want to remove, and then removes it from the tree.
 + **Move Node:** Prompts the user to enter the names of the parent and subset nodes they want to move, and then moves the subset to the parent.
